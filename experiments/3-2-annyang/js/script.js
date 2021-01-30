@@ -1,20 +1,21 @@
-/**************************************************
-Template p5 project
-Pippin Barr
+"use strict";
 
-Here is a description of this template p5 project.
-**************************************************/
 
-// setup()
-//
-// Description of setup() goes here.
 function setup() {
+  createCanvas(500, 500);
 
+  if (annyang) {
+    let commands = {
+      'hello': function() {
+        alert(`Howdy!`);
+      }
+    };
+    annyang.addCommands(commands);
+    annyang.start();
+  }
 }
 
-// draw()
-//
-// Description of draw() goes here.
-function draw() {
 
+function draw() {
+  background(0);
 }
