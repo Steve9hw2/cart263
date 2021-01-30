@@ -75,6 +75,8 @@ const animals =  [
     "mole",
   ];
 
+  let currentState = 'game' // game, win
+
   let currentAnimal = ``;
   let currentAnswer = `Click to start`;
   let currentInput = ``;
@@ -253,6 +255,7 @@ function setup() {
 
 function draw() {
   background(0);
+  if (currentState === 'game') {
   if (currentAnswer === currentAnimal) {
     if (!scoreAdded) {
       scoreAdded = true;
@@ -305,6 +308,14 @@ function draw() {
   displayAnimal(scored7,7)
   displayAnimal(scored8,8)
   displayAnimal(scored9,9)
+  if (score === 10) {
+    currentState = 'win';
+  }
+  }
+  else if (currentState === 'win') {
+    fill(277,185,59);
+    text("You win!",width/2,height/2)
+  }
 }
 
 function keyPressed() {
@@ -314,6 +325,18 @@ function keyPressed() {
   }
   if (key === 'Enter' && !answerSubmitted) {
    currentAnswer = currentInput
+   if (currentAnswer !== currentAnimal) {
+     score = 0;
+     scored1 = '';
+     scored2 = '';
+     scored3 = '';
+     scored4 = '';
+     scored5 = '';
+     scored6 = '';
+     scored7 = '';
+     scored8 = '';
+     scored9 = '';
+   }
    inputKeys.splice(0,currentInput.length);
    answerSubmitted = true;
   }
@@ -325,6 +348,7 @@ function keyPressed() {
 }
 
 function mousePressed() {
+  if (currentState === 'game'){
   currentAnimal = random(animals);
   let reverseAnimal = reverseString(currentAnimal);
   responsiveVoice.speak(reverseAnimal);
@@ -333,6 +357,7 @@ function mousePressed() {
   inputKeys.splice(0,currentInput.length);
   currentAnswer = '';
   currentInput = '';
+  }
 }
 
 function displayAnimal(animal,index) {
