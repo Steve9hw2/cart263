@@ -568,7 +568,7 @@ function displayAnimal(animal,index) {
       image(lionImg,100+100*index,height-100);
     break;
     case 'lizard':
-      image(lizardmg,100+100*index,height-100);
+      image(lizardImg,100+100*index,height-100);
     break;
     case 'llama':
       image(llamaImg,100+100*index,height-100);
