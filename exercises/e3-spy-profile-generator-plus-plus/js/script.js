@@ -19,7 +19,7 @@ let spyProfile = {
 }
 
 let instrumentData = undefined;
-let objectData = undefined;
+// let objectData = undefined;          // this has been commented out as i didn't find a use for this dataset that I liked
 let tarotData = undefined;
 let chemicalsData = undefined;
 let flowerData = undefined;
@@ -29,6 +29,8 @@ let nounsData = undefined;
 let vegData = undefined;
 let menuData = undefined;
 let zodiacData = undefined;
+
+let voiceSpeaking = false;
 
 function preload() {
   tarotData = loadJSON(`assets/data/tarotinfo.json`);
@@ -67,24 +69,24 @@ function setup() {
 }
 
 function generateSpyProfile() {
-    let zodiacN = undefined;
+    let zodiacN = undefined;  // this is the value that will be used to store which zodiac the user is.
     spyProfile.name = prompt(`Agent!! What is your name?!`);
-    let chemical = random(chemicalsData.chemicals);
-    let name = random(namesData.lastNames);
+    let chemical = random(chemicalsData.chemicals); // stores randomized chemical from JSON.
+    let name = random(namesData.lastNames); // stores randomized name from JSON.
     spyProfile.codename = random(menuData.menuItems);
     spyProfile.alias = `The ${name} ${chemical}`;
-    let flower = random(flowerData.flowers);
-    let noun = random(nounsData.nouns);
+    let flower = random(flowerData.flowers); // stores randomized flower from JSON.
+    let noun = random(nounsData.nouns); // stores randomized noun from JSON.
     spyProfile.secretWeapon = `The ${flower} ${noun}`;
     spyProfile.nationality = random(nationalityData.nationalities);
-    let instrument = random(instrumentData.instruments);
-    let veg = random(vegData.vegetables);
+    let instrument = random(instrumentData.instruments); // stores randomized instrument from JSON.
+    let veg = random(vegData.vegetables); // stores randomized vegetable from JSON.
     spyProfile.secretGadget = `The ${veg} ${instrument}`;
-    let tarot = random(tarotData.tarot_interpretations);
-    let tarotname = tarot.name
+    let tarot = random(tarotData.tarot_interpretations); // stores randomized tarot card from JSON.
+    let tarotname = tarot.name  // accesses the name of the randomized tarot
     spyProfile.tarot = `${tarotname}`;
-    let zodiacCase = Math.floor(Math.random() * Math.floor(12));
-    switch(zodiacCase) {
+    let zodiacCase = Math.floor(Math.random() * Math.floor(12)); // randomized which zodiac the user belongs to.
+    switch(zodiacCase) {     // this whole switch statement exists because the zodiac JSON file is not structured as an array. this works to essentially replicate one.
       case 0:
          zodiacN = zodiacData.western_zodiac.Aries;
       break;
@@ -122,7 +124,7 @@ function generateSpyProfile() {
          zodiacN = zodiacData.western_zodiac.Pisces;
       break;
     }
-    let zodiacTitle = zodiacN.gloss
+    let zodiacTitle = zodiacN.gloss // accesses description of the zodiac animal.
     spyProfile.zodiac = zodiacTitle
     localStorage.setItem(`spy-profile-data`,JSON.stringify(spyProfile));
 }
@@ -151,10 +153,18 @@ function draw() {
     fill(0);
     text(profile, 100, 100);
     pop();
+
+    if(!voiceSpeaking) {  // responsiveVoice reads the profile
+      voiceSpeaking = true;
+      responsiveVoice.speak(profile);
+    }
 }
 
 function keyPressed() {
   if (key === `Enter`) {
     generateSpyProfile();
+    voiceSpeaking = false;
   }
 }
+
+// ref on Math.random() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
