@@ -25,6 +25,12 @@ let trooper3img;
 let trooper4img;
 let trooper5img;
 
+let trooperpose;
+let trooperpose2;
+let trooperpose3;
+let trooperpose4;
+let trooperpose5;
+
 function preload() {
   deathStar = loadImage(`assets/images/deathstar.png`);
   deathStarRoom = loadImage(`assets/images/deathstarroom.png`)
@@ -36,6 +42,12 @@ function preload() {
   trooper3img = loadImage(`assets/images/trooper3.png`);
   trooper4img = loadImage(`assets/images/trooper4.png`);
   trooper5img = loadImage(`assets/images/trooper5.png`);
+  //posing
+  trooperpose = loadImage(`assets/images/trooperpose.png`);
+  trooperpose2 = loadImage(`assets/images/trooperpose2.png`);
+  trooperpose3 = loadImage(`assets/images/trooperpose3.png`);
+  trooperpose4 = loadImage(`assets/images/trooperpose4.png`);
+  trooperpose5 = loadImage(`assets/images/trooperpose5.png`);
 }
 
 function setup() {
@@ -107,19 +119,39 @@ function drawTrooperSelection() {
     trooper.x = 200 + 280*i;
     switch(trooper.var){
       case 1:
+      if (trooper.mouseover) {
+      image(trooperpose,trooper.x,trooper.y);
+      } else {
       image(trooperimg,trooper.x,trooper.y);
+      }
       break;
       case 2:
+      if (trooper.mouseover) {
+      image(trooperpose2,trooper.x,trooper.y);
+      } else {
       image(trooper2img,trooper.x,trooper.y);
+      }
       break;
       case 3:
+      if (trooper.mouseover) {
+      image(trooperpose3,trooper.x,trooper.y);
+      } else {
       image(trooper3img,trooper.x,trooper.y);
+      }
       break;
       case 4:
+      if (trooper.mouseover) {
+      image(trooperpose4,trooper.x,trooper.y);
+      } else {
       image(trooper4img,trooper.x,trooper.y);
+      }
       break;
       case 5:
-      image(trooper5img,trooper.x,trooper.y);
+      if (trooper.mouseover) {
+      image(trooperpose5,trooper.x,trooper.y);
+      } else {
+        image(trooper5img,trooper.x,trooper.y);
+      }
     }
     pop();
   }
