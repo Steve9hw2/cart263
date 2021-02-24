@@ -11,6 +11,7 @@ Based on Star Wars???
 
 let gameState = `title`; // title - selection - firing - running - results
 let numberOfTroopers = 6;
+let troopers = [];
 
 let deathStar;
 let deathStarRoom;
@@ -39,8 +40,14 @@ function preload() {
 
 function setup() {
   createCanvas(1800,900);
-  for(let i; i < numberOfTroopers; i++) {
-    
+  print(`canvas added`);
+  for(let i = 0; i < numberOfTroopers; i++) {
+    let trooper;
+    trooper = new Trooper();
+    trooper.var = int(random(1,6));
+    trooper.number = i;
+    troopers.push(trooper);
+    print(`trooper added`);
   }
 }
 
@@ -53,7 +60,10 @@ function draw() {
     drawPlayButton();
     break;
     case `selection`:
-    image(deathStarHall,0,0);
+    image(deathStarRoom,0,0);
+    drawTrooperSelection();
+    selectionText();
+    selectionMouseover();
     break;
     case `firing`:
     break;
@@ -85,6 +95,70 @@ function drawPlayButton() {
   textFont(starwarsfont);
   textSize(60);
   text(`Play`, 200, 600);
+  pop();
+}
+
+function drawTrooperSelection() {
+  for(let i = 0; i < numberOfTroopers; i++) {
+    push();
+    imageMode(CENTER);
+    let trooper = troopers[i];
+    trooper.y = 600;
+    trooper.x = 200 + 280*i;
+    switch(trooper.var){
+      case 1:
+      image(trooperimg,trooper.x,trooper.y);
+      break;
+      case 2:
+      image(trooper2img,trooper.x,trooper.y);
+      break;
+      case 3:
+      image(trooper3img,trooper.x,trooper.y);
+      break;
+      case 4:
+      image(trooper4img,trooper.x,trooper.y);
+      break;
+      case 5:
+      image(trooper5img,trooper.x,trooper.y);
+    }
+    pop();
+  }
+}
+
+function selectionText() {
+  push();
+  textFont(starwarsfont);
+  fill(255);
+  textSize(60);
+  text(`Choose your Trooper`, 215, 100);
+  pop();
+}
+
+function selectionMouseover() {
+  for(let i = 0; i < numberOfTroopers; i++) {
+    let trooper = troopers[i]
+    let check;
+    check = trooper.checkMouseover();
+    if (check) {
+      drawStatBox();
+      push();
+      fill(255);
+      textFont(starwarsfont);
+      textSize(20);
+      text(`Accuracy: ${trooper.stats.accuracy}/50`,120,80);
+      text(`Speed: ${trooper.stats.speed}/50`,120,130);
+      text(`Strength: ${trooper.stats.strength}/50`,120,180);
+      let totalpower = trooper.stats.accuracy + trooper.stats.speed + trooper.stats.strength;
+      text(`Total Power: ${totalpower}`, 120, 250);
+      pop();
+    }
+  }
+}
+
+function drawStatBox() {
+  push();
+  fill(0);
+  rect(100,40,600,250,40);
   pop();
 }
 
