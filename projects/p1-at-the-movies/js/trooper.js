@@ -7,6 +7,8 @@ class Trooper {
     this.height = 640;
     this.var = 0;
     this.number = 0;
+    this.name = `noname`;
+    this.rank = `useless`;
     this.mouseover = false;
     this.stats = {
       accuracy: int(random(1,10)),
@@ -22,6 +24,13 @@ class Trooper {
     } else {
       this.mouseover = false;
       return(false);
+    }
+  }
+
+  checkMousePress() {
+    if (this.mouseover) {
+      chosenTrooper = this;
+      gameState = `firing`;
     }
   }
 }

@@ -1,0 +1,27 @@
+{
+  "MilitaryRanks": [
+    "admiral",
+    "rear-admiral",
+    "commodore",
+    "captain",
+    "commander",
+    "lieutenant",
+    "cadet",
+    "general",
+    "major-general",
+    "brigadier-general",
+    "colonel",
+    "major",
+    "officer cadet",
+    "warrant officer",
+    "sergeant",
+    "corporal",
+    "private",
+    "marshal",
+    "group captain",
+    "wing commander",
+    "squadron leader",
+    "flying officer",
+    "pilot officer"
+  ]
+}

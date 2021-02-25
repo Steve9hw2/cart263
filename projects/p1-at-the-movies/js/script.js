@@ -12,6 +12,7 @@ Based on Star Wars???
 let gameState = `title`; // title - selection - firing - running - results
 let numberOfTroopers = 6;
 let troopers = [];
+let chosenTrooper = [];
 
 let deathStar;
 let deathStarRoom;
@@ -31,6 +32,15 @@ let trooperpose3;
 let trooperpose4;
 let trooperpose5;
 
+let troopershoot;
+let troopershoot2;
+let troopershoot3;
+let troopershoot4;
+let troopershoot5;
+
+let nameJSON;
+let rankJSON;
+
 function preload() {
   deathStar = loadImage(`assets/images/deathstar.png`);
   deathStarRoom = loadImage(`assets/images/deathstarroom.png`)
@@ -48,6 +58,15 @@ function preload() {
   trooperpose3 = loadImage(`assets/images/trooperpose3.png`);
   trooperpose4 = loadImage(`assets/images/trooperpose4.png`);
   trooperpose5 = loadImage(`assets/images/trooperpose5.png`);
+  //shooting
+  troopershoot = loadImage(`assets/images/troopergun.png`);
+  troopershoot2 = loadImage(`assets/images/troopergun2.png`);
+  troopershoot3 = loadImage(`assets/images/troopergun3.png`);
+  troopershoot4 = loadImage(`assets/images/troopergun4.png`);
+  troopershoot5 = loadImage(`assets/images/troopergun5.png`);
+  //data
+  nameJSON = loadJSON(`https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/lastNames.json`);
+  rankJSON = loadJSON(`assets/data/ranks.json`)
 }
 
 function setup() {
@@ -57,6 +76,8 @@ function setup() {
     let trooper;
     trooper = new Trooper();
     trooper.var = int(random(1,6));
+    trooper.name = random(nameJSON.lastNames);
+    trooper.rank = random(rankJSON.MilitaryRanks);
     trooper.number = i;
     troopers.push(trooper);
     print(`trooper added`);
@@ -78,6 +99,8 @@ function draw() {
     selectionMouseover();
     break;
     case `firing`:
+    image(deathStarHall,0,0);
+    drawFiringTrooper();
     break;
     case `running`:
     break;
@@ -182,6 +205,8 @@ function selectionMouseover() {
       text(`Strength: ${trooper.stats.strength}/50`,120,180);
       let totalpower = trooper.stats.accuracy + trooper.stats.speed + trooper.stats.strength;
       text(`Total Power: ${totalpower}`, 120, 250);
+      text(`${trooper.name}`,400,80);
+      text(`${trooper.rank}`,400,130);
       pop();
     }
   }
@@ -202,6 +227,10 @@ function mousePressed() {
     }
     break;
     case `selection`:
+      for(let i = 0; i < numberOfTroopers; i ++) {
+        let trooper = troopers[i];
+        trooper.checkMousePress();
+      }
     break;
     case `firing`:
     break;
@@ -210,4 +239,27 @@ function mousePressed() {
     case `results`:
     break;
   }
+}
+
+function drawFiringTrooper() {
+  push();
+  imageMode(CENTER);
+  switch(chosenTrooper.var) {
+    case 1:
+    image(troopershoot,200,500);
+    break;
+    case 2:
+    image(troopershoot2,200,500);
+    break;
+    case 3:
+    image(troopershoot3,200,500);
+    break;
+    case 4:
+    image(troopershoot4,200,500);
+    break;
+    case 5:
+    image(troopershoot5,200,500);
+    break;
+  }
+  pop();
 }
