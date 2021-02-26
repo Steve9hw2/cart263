@@ -11,9 +11,9 @@ class Trooper {
     this.rank = `useless`;
     this.mouseover = false;
     this.stats = {
-      accuracy: int(random(1,10)),
-      speed: int(random(1,50)),
-      strength: int(random(1,50))
+      accuracy: int(random(1,11)), // 1-10
+      speed: int(random(1,51)), // 1-50
+      strength: int(random(1,51)) // 1-50
     }
   }
 

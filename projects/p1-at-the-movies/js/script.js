@@ -13,6 +13,13 @@ let gameState = `title`; // title - selection - firing - running - results
 let numberOfTroopers = 6;
 let troopers = [];
 let chosenTrooper = [];
+let numberOfTargets = 10; // shooting section - targets
+let targets = [];
+let firedShots = 0;
+let brokenTargets = 0;
+let currentShot = undefined;
+let gunshots = [];
+let shotLength = 10;
 
 let deathStar;
 let deathStarRoom;
@@ -37,6 +44,8 @@ let troopershoot2;
 let troopershoot3;
 let troopershoot4;
 let troopershoot5;
+
+let target;
 
 let nameJSON;
 let rankJSON;
@@ -64,6 +73,8 @@ function preload() {
   troopershoot3 = loadImage(`assets/images/troopergun3.png`);
   troopershoot4 = loadImage(`assets/images/troopergun4.png`);
   troopershoot5 = loadImage(`assets/images/troopergun5.png`);
+  //target
+  target = loadImage(`assets/images/target.png`);
   //data
   nameJSON = loadJSON(`https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/lastNames.json`);
   rankJSON = loadJSON(`assets/data/ranks.json`)
@@ -71,7 +82,7 @@ function preload() {
 
 function setup() {
   createCanvas(1800,900);
-  print(`canvas added`);
+  frameRate(30);
   for(let i = 0; i < numberOfTroopers; i++) {
     let trooper;
     trooper = new Trooper();
@@ -81,6 +92,14 @@ function setup() {
     trooper.number = i;
     troopers.push(trooper);
     print(`trooper added`);
+  }
+  for(let i = 0; i < numberOfTargets; i++) {
+    let currentTarget;
+    currentTarget = new Target();
+    currentTarget.x = random(1000,1700);
+    currentTarget.y = random(200,700);
+    currentTarget.number = i;
+    targets.push(currentTarget);
   }
 }
 
@@ -101,6 +120,8 @@ function draw() {
     case `firing`:
     image(deathStarHall,0,0);
     drawFiringTrooper();
+    drawTargets();
+    drawGunfire();
     break;
     case `running`:
     break;
@@ -233,6 +254,7 @@ function mousePressed() {
       }
     break;
     case `firing`:
+        gunfire();
     break;
     case `running`:
     break;
@@ -262,4 +284,24 @@ function drawFiringTrooper() {
     break;
   }
   pop();
+}
+
+function drawTargets() {
+    let currentTarget = targets[brokenTargets];
+    image(target,currentTarget.x,currentTarget.y);
+}
+
+function gunfire() {
+    currentShot = new Plasma();
+    currentShot.vx = random(10,30);
+    currentShot.vy = random(-30,30);
+    gunshots.push(currentShot);
+}
+
+function drawGunfire() {
+    for (let i = 0; i < gunshots.length; i++) {
+      currentShot = gunshots[i];
+      currentShot.physics();
+      currentShot.drawShot();
+    }
 }
