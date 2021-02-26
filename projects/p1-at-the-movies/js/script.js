@@ -19,7 +19,8 @@ let firedShots = 0;
 let brokenTargets = 0;
 let currentShot = undefined;
 let gunshots = [];
-let shotLength = 10;
+let shotLength = 1;
+let currentTarget;
 
 let deathStar;
 let deathStarRoom;
@@ -45,7 +46,18 @@ let troopershoot3;
 let troopershoot4;
 let troopershoot5;
 
+let trooperrun;
+let trooperrun2;
+let trooperrun3;
+let trooperrun4;
+let trooperrun5;
+
 let target;
+
+let dude;
+let dudex = 300;
+let dudevx = 20;
+let dudecaught = true;
 
 let nameJSON;
 let rankJSON;
@@ -73,8 +85,16 @@ function preload() {
   troopershoot3 = loadImage(`assets/images/troopergun3.png`);
   troopershoot4 = loadImage(`assets/images/troopergun4.png`);
   troopershoot5 = loadImage(`assets/images/troopergun5.png`);
+  //running
+  trooperrun = loadImage(`assets/images/trooperrun.png`);
+  trooperrun2 = loadImage(`assets/images/trooperrun2.png`);
+  trooperrun3 = loadImage(`assets/images/trooperrun3.png`);
+  trooperrun4 = loadImage(`assets/images/trooperrun4.png`);
+  trooperrun5 = loadImage(`assets/images/trooperrun5.png`);
   //target
   target = loadImage(`assets/images/target.png`);
+  //luke the dude
+  dude = loadImage(`assets/images/dude.png`);
   //data
   nameJSON = loadJSON(`https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/lastNames.json`);
   rankJSON = loadJSON(`assets/data/ranks.json`)
@@ -122,10 +142,21 @@ function draw() {
     drawFiringTrooper();
     drawTargets();
     drawGunfire();
+    drawHit();
+    checkFiringEnd();
     break;
     case `running`:
+    image(deathStarHall,0,0);
+    trooperRuns();
+    escapingDude();
+    drawRunningTrooper();
+    doesTrooperCatch();
+    dudeEscapes();
     break;
     case `results`:
+    image(deathStarRoom,0,0);
+    drawStandingTrooper();
+    drawResults();
     break;
   }
 }
@@ -287,12 +318,13 @@ function drawFiringTrooper() {
 }
 
 function drawTargets() {
-    let currentTarget = targets[brokenTargets];
+    currentTarget = targets[brokenTargets];
     image(target,currentTarget.x,currentTarget.y);
 }
 
 function gunfire() {
     currentShot = new Plasma();
+    firedShots++;
     currentShot.vx = random(10,30);
     currentShot.vy = random(-30,30);
     gunshots.push(currentShot);
@@ -302,6 +334,121 @@ function drawGunfire() {
     for (let i = 0; i < gunshots.length; i++) {
       currentShot = gunshots[i];
       currentShot.physics();
-      currentShot.drawShot();
+      currentShot.hitTarget();
     }
+}
+
+function drawHit() {
+  push();
+  textFont(starwarsfont);
+  fill(255);
+  textSize(40);
+  text(`Targets Hit: ${brokenTargets}`,160,100);
+  let remainingshots = 10 - firedShots;
+  text(`Shots Left: ${remainingshots}`,160,160);
+  pop();
+}
+
+function checkFiringEnd() {
+  if(firedShots >= 10) {
+    gameState = `running`;
+  }
+  chosenTrooper.x = 0
+}
+
+function trooperRuns() {
+  chosenTrooper.x += chosenTrooper.stats.speed;
+  print(chosenTrooper.x)
+}
+
+function drawRunningTrooper() {
+  push();
+  imageMode(CENTER);
+  switch(chosenTrooper.var) {
+    case 1:
+    image(trooperrun,chosenTrooper.x,500);
+    break;
+    case 2:
+    image(trooperrun2,chosenTrooper.x,500);
+    break;
+    case 3:
+    image(trooperrun3,chosenTrooper.x,500);
+    break;
+    case 4:
+    image(trooperrun4,chosenTrooper.x,500);
+    break;
+    case 5:
+    image(trooperrun5,chosenTrooper.x,500);
+    break;
+  }
+  pop();
+}
+
+function escapingDude() {
+  dudex += dudevx;
+  image(dude,dudex,300);
+}
+
+function doesTrooperCatch() {
+  if(chosenTrooper.x > dudex) {
+    dudecaught = true;
+    gameState = `results`;
+  }
+}
+
+function dudeEscapes() {
+  if(dudex > 1800) {
+    gameState = `results`;
+  }
+}
+
+function drawStandingTrooper() {
+  switch(chosenTrooper.var){
+    case 1:
+    image(trooperpose,300,300);
+    break;
+    case 2:
+    image(trooperpose2,300,300);
+    break;
+    case 3:
+    image(trooperpose3,300,300);
+    break;
+    case 4:
+    image(trooperpose4,300,300);
+    break;
+    case 5:
+    image(trooperpose5,300,300);
+    break;
+  }
+}
+
+function drawResults() {
+    push();
+    fill(0);
+    rect(800,100,800,700,60);
+    fill(255);
+    textFont(starwarsfont);
+    textSize(30);
+    text(`Dear ${chosenTrooper.name},`,900,300);
+    textSize(20);
+    if(brokenTargets > 0) {
+    text(`It would seem you managed to break a target.`,900,400);
+    } else {
+    text(`You are absolutely useless with a weapon.`, 900, 400);
+    }
+    if(brokenTargets > 0 && !dudecaught) {
+    text(`You let that guy in the hall slip, though.`, 900, 500);
+    text(`Get back to training, ${chosenTrooper.name}.`, 900, 600);
+    } else if(brokenTargets > 0 && dudecaught) {
+    text(`You caught that guy in the hall, too?.`, 900, 500);
+    text(`Good work, ${chosenTrooper.name}.`, 900, 600);
+  } else if(brokenTargets = 0 && dudecaught) {
+    text(`At least you caught that dude in the hall.`, 900, 500);
+    text(`You'll be living in the shooting range.`,900, 600);
+  } else {
+    text(`You let that guy slip, too??`, 900, 500);
+    text(`You're fired. i'm booting you into space.`, 900, 600);
+  }
+    text(`With love, from Mr. vader`, 900, 700);
+    pop();
 }
