@@ -330,7 +330,10 @@ function drawFiringTrooper() {
 
 function drawTargets() {
     currentTarget = targets[brokenTargets];
+    push();
+    imageMode(CENTER);
     image(target,currentTarget.x,currentTarget.y);
+    pop();
 }
 
 function gunfire() {
@@ -346,6 +349,10 @@ function drawGunfire() {
       currentShot = gunshots[i];
       currentShot.physics();
       currentShot.hitTarget();
+      if(currentShot.front.x > 1800) {
+        gunshots.splice(i, 1);
+      }
+      print(currentShot.front.x);
     }
 }
 
@@ -444,7 +451,7 @@ function drawResults() {
     textp1 = `Dear ${chosenTrooper.name},`;
     textSize(20);;
     if(brokenTargets > 0) {
-    text(`It would seem you managed to break a target.`,900,300);
+    text(`it would seem you managed to break a target.`,900,300);
     textp2 = `It would seem you managed to break a target.`;
     } else {
     text(`You are absolutely useless with a weapon.`, 900, 300);
@@ -456,8 +463,8 @@ function drawResults() {
     text(`Get back to training, ${chosenTrooper.name}.`, 900, 500);
     textp4 = `Get back to training, ${chosenTrooper.name}.`;
   } else if(brokenTargets > 0 && dudecaught == true) {
-    text(`You caught that guy in the hall, too?.`, 900, 400);
-    textp3 = `You caught that guy in the hall, too?.`;
+    text(`You caught that guy in the hall, too?`, 900, 400);
+    textp3 = `You caught that guy in the hall, too?`;
     text(`Good work, ${chosenTrooper.name}.`, 900, 500);
     textp4 = `Good work, ${chosenTrooper.name}.`;
   } else if(brokenTargets == 0 && dudecaught == true) {

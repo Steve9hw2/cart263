@@ -36,8 +36,9 @@ class Plasma {
   }
 
   hitTarget() {
-    if(this.front.x > currentTarget.x - currentTarget.width/2 && this.front.x < currentTarget.x + currentTarget.width/2 && this.front.y > currentTarget.y - currentTarget.height/2 && this.front.y < currentTarget.y + currentTarget.height/2) {
+    if(this.front.x > currentTarget.x && this.front.y > currentTarget.y - currentTarget.height/2 && this.front.y < currentTarget.y + currentTarget.height/2) {
       currentTarget.hit = true;
+      print(`Bullet has hit target!`)
       brokenTargets ++;
     }
   }
