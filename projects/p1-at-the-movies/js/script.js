@@ -6,6 +6,7 @@ Steve Berthiaume
 CART 263 / Project 1 - A Night at the Movies
 Clone Trooper Simulator
 Based on Star Wars???
+It's very loose, I think.
 
 **/
 
@@ -15,60 +16,61 @@ let troopers = [];
 let chosenTrooper = [];
 let numberOfTargets = 10; // shooting section - targets
 let targets = [];
-let firedShots = 0;
+let firedShots = 0; // tracks the number of shots, as to end when 10 are fired.
 let brokenTargets = 0;
 let currentShot = undefined;
-let gunshots = [];
+let gunshots = []; // empties when a gunshot passes the right edge of the screen.
 let shotLength = 1;
 let currentTarget;
 
-let deathStar;
+let deathStar; // images
 let deathStarRoom;
 let deathStarHall;
 
-let starwarsfont;
+let starwarsfont; // font (very buggy for some reason)
 
-let trooperimg;
+let trooperimg; // default trooper images - used for selection
 let trooper2img;
 let trooper3img;
 let trooper4img;
 let trooper5img;
 
-let trooperpose;
+let trooperpose; // selection images - for mouseover
 let trooperpose2;
 let trooperpose3;
 let trooperpose4;
 let trooperpose5;
 
-let troopershoot;
+let troopershoot; // trooper images for the shooting range
 let troopershoot2;
 let troopershoot3;
 let troopershoot4;
 let troopershoot5;
 
-let trooperrun;
+let trooperrun; // trooper images for the dude chase
 let trooperrun2;
 let trooperrun3;
 let trooperrun4;
 let trooperrun5;
 
-let target;
+let target; // target image
 
-let dude;
+let dude; // dude image, position, speed and if he's caught.
 let dudex = 300;
 let dudevx = 20;
 let dudecaught = false;
 
-let textp1;
+let textp1; // values which fill with the text on the end screen.
 let textp2;
 let textp3;
 let textp4;
 let textp5;
-let voiceSpeaking = false;
+
+let voiceSpeaking = false; // check for if the voice is speaking and its section to debounce.
 let voiceSection = 0;
 
-let nameJSON;
-let rankJSON;
+let nameJSON; // taken from dariusk's corpora project
+let rankJSON; // custom made, using wikipedia military ranks for the canadian armed forces.
 
 function preload() {
   deathStar = loadImage(`assets/images/deathstar.png`);
@@ -111,7 +113,7 @@ function preload() {
 function setup() {
   createCanvas(1800,900);
   frameRate(30);
-  for(let i = 0; i < numberOfTroopers; i++) {
+  for(let i = 0; i < numberOfTroopers; i++) { // generation of the selection troopers
     let trooper;
     trooper = new Trooper();
     trooper.var = int(random(1,6));
@@ -119,9 +121,8 @@ function setup() {
     trooper.rank = random(rankJSON.MilitaryRanks);
     trooper.number = i;
     troopers.push(trooper);
-    print(`trooper added`);
   }
-  for(let i = 0; i < numberOfTargets; i++) {
+  for(let i = 0; i < numberOfTargets; i++) { // generation of the targets for the shooting range
     let currentTarget;
     currentTarget = new Target();
     currentTarget.x = random(1000,1700);
@@ -165,14 +166,14 @@ function draw() {
     image(deathStarRoom,0,0);
     drawStandingTrooper();
     drawResults();
-    if(voiceSection < 5) {
+    if(voiceSection < 5) { // past 4, all the lines will have been spoken and the calling of resultsVoice() is unnecessary.
       resultsVoice();
     }
     break;
   }
 }
 
-function drawTitle() {
+function drawTitle() { // draws title text.
   push();
   textFont(starwarsfont);
   fill(255);
@@ -182,7 +183,7 @@ function drawTitle() {
   pop();
 }
 
-function drawPlayButton() {
+function drawPlayButton() { // draws title button, which is gray if moused over.
   print(mouseX,mouseY);
   push();
   if (mouseX >= 190 && mouseX <= 370 && mouseY >= 550 && mouseY <= 600) {
@@ -196,7 +197,7 @@ function drawPlayButton() {
   pop();
 }
 
-function drawTrooperSelection() {
+function drawTrooperSelection() { // draws the troopers on the selection screen, and loads a different image if moused over.
   for(let i = 0; i < numberOfTroopers; i++) {
     push();
     imageMode(CENTER);
@@ -243,7 +244,7 @@ function drawTrooperSelection() {
   }
 }
 
-function selectionText() {
+function selectionText() { // text on the top left of the selection screen.
   push();
   textFont(starwarsfont);
   fill(255);
@@ -252,11 +253,11 @@ function selectionText() {
   pop();
 }
 
-function selectionMouseover() {
+function selectionMouseover() { // shows the stat box.
   for(let i = 0; i < numberOfTroopers; i++) {
     let trooper = troopers[i]
     let check;
-    check = trooper.checkMouseover();
+    check = trooper.checkMouseover(); // returns true or false for mouseover.
     if (check) {
       drawStatBox();
       push();
@@ -275,14 +276,14 @@ function selectionMouseover() {
   }
 }
 
-function drawStatBox() {
+function drawStatBox() { // the actual black rectangle of the stat box.
   push();
   fill(0);
   rect(100,40,600,250,40);
   pop();
 }
 
-function mousePressed() {
+function mousePressed() { // organized according to what gets called for which section, if anything is actually called.
   switch(gameState) {
     case `title`:
     if (mouseX >= 190 && mouseX <= 370 && mouseY >= 550 && mouseY <= 600) {
@@ -305,7 +306,7 @@ function mousePressed() {
   }
 }
 
-function drawFiringTrooper() {
+function drawFiringTrooper() { // draws the troopers on the shooting range.
   push();
   imageMode(CENTER);
   switch(chosenTrooper.var) {
@@ -328,7 +329,7 @@ function drawFiringTrooper() {
   pop();
 }
 
-function drawTargets() {
+function drawTargets() { // draws the current target at the shooting range.
     currentTarget = targets[brokenTargets];
     push();
     imageMode(CENTER);
@@ -336,7 +337,7 @@ function drawTargets() {
     pop();
 }
 
-function gunfire() {
+function gunfire() { // adds a new gunshot, with a random motion. (since all troopers have bad aim, stats have no impact here.)
     currentShot = new Plasma();
     firedShots++;
     currentShot.vx = random(10,30);
@@ -344,19 +345,18 @@ function gunfire() {
     gunshots.push(currentShot);
 }
 
-function drawGunfire() {
+function drawGunfire() { // the repeated drawing of each individual gunshot.
     for (let i = 0; i < gunshots.length; i++) {
       currentShot = gunshots[i];
       currentShot.physics();
       currentShot.hitTarget();
-      if(currentShot.front.x > 1800) {
+      if(currentShot.front.x > 1800) { // clearing of gunshots
         gunshots.splice(i, 1);
       }
-      print(currentShot.front.x);
     }
 }
 
-function drawHit() {
+function drawHit() { // displays targets hit, and shots left.
   push();
   textFont(starwarsfont);
   fill(255);
@@ -367,19 +367,18 @@ function drawHit() {
   pop();
 }
 
-function checkFiringEnd() {
-  if(firedShots >= 10) {
+function checkFiringEnd() { // ends when the player clicks an 11th time.
+  if(firedShots >= 11) {
     gameState = `running`;
   }
   chosenTrooper.x = 0
 }
 
-function trooperRuns() {
+function trooperRuns() { // adds to the trooper's position in the chase.
   chosenTrooper.x += chosenTrooper.stats.speed;
-  print(chosenTrooper.x)
 }
 
-function drawRunningTrooper() {
+function drawRunningTrooper() { // draws the chasing trooper.
   push();
   imageMode(CENTER);
   switch(chosenTrooper.var) {
@@ -402,25 +401,25 @@ function drawRunningTrooper() {
   pop();
 }
 
-function escapingDude() {
+function escapingDude() { // draws luke the dude, running from the trooper.
   dudex += dudevx;
   image(dude,dudex,300);
 }
 
-function doesTrooperCatch() {
+function doesTrooperCatch() { // checks for if the trooper is able to catch luke.
   if(chosenTrooper.x > dudex) {
     dudecaught = true;
     gameState = `results`;
   }
 }
 
-function dudeEscapes() {
+function dudeEscapes() { // ends the chase if luke passes the right edge. (as dudecaught is by default false, not changing it still equals a fail)
   if(dudex > 1800) {
     gameState = `results`;
   }
 }
 
-function drawStandingTrooper() {
+function drawStandingTrooper() { // draws trooper at the results screen. different from the selection as the mouseover is not a factor.
   switch(chosenTrooper.var){
     case 1:
     image(trooperpose,300,300);
@@ -440,7 +439,7 @@ function drawStandingTrooper() {
   }
 }
 
-function drawResults() {
+function drawResults() { // draws the text for the results, and sets the text that ResponsiveVoice will speak.
     push();
     fill(0);
     rect(800,100,800,700,60);
@@ -483,7 +482,7 @@ function drawResults() {
     pop();
 }
 
-function resultsVoice() {
+function resultsVoice() { // ResponsiveVoice speaks the lines dictated in drawResults(). A debounce is used to prevent it from failing.
   if(!voiceSpeaking){
     voiceSpeaking = true;
   switch(voiceSection){
