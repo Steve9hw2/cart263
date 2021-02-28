@@ -57,7 +57,15 @@ let target;
 let dude;
 let dudex = 300;
 let dudevx = 20;
-let dudecaught = true;
+let dudecaught = false;
+
+let textp1;
+let textp2;
+let textp3;
+let textp4;
+let textp5;
+let voiceSpeaking = false;
+let voiceSection = 0;
 
 let nameJSON;
 let rankJSON;
@@ -157,6 +165,9 @@ function draw() {
     image(deathStarRoom,0,0);
     drawStandingTrooper();
     drawResults();
+    if(voiceSection < 5) {
+      resultsVoice();
+    }
     break;
   }
 }
@@ -429,26 +440,72 @@ function drawResults() {
     fill(255);
     textFont(starwarsfont);
     textSize(30);
-    text(`Dear ${chosenTrooper.name},`,900,300);
-    textSize(20);
+    text(`Dear ${chosenTrooper.name},`,900,200);
+    textp1 = `Dear ${chosenTrooper.name},`;
+    textSize(20);;
     if(brokenTargets > 0) {
-    text(`It would seem you managed to break a target.`,900,400);
+    text(`It would seem you managed to break a target.`,900,300);
+    textp2 = `It would seem you managed to break a target.`;
     } else {
-    text(`You are absolutely useless with a weapon.`, 900, 400);
+    text(`You are absolutely useless with a weapon.`, 900, 300);
+    textp2 = `You are absolutely useless with a weapon.`;
     }
     if(brokenTargets > 0 && !dudecaught) {
-    text(`You let that guy in the hall slip, though.`, 900, 500);
-    text(`Get back to training, ${chosenTrooper.name}.`, 900, 600);
-    } else if(brokenTargets > 0 && dudecaught) {
-    text(`You caught that guy in the hall, too?.`, 900, 500);
-    text(`Good work, ${chosenTrooper.name}.`, 900, 600);
-  } else if(brokenTargets = 0 && dudecaught) {
-    text(`At least you caught that dude in the hall.`, 900, 500);
-    text(`You'll be living in the shooting range.`,900, 600);
-  } else {
-    text(`You let that guy slip, too??`, 900, 500);
-    text(`You're fired. i'm booting you into space.`, 900, 600);
+    text(`You let that guy in the hall slip, though.`, 900, 400);
+    textp3 = `You let that guy in the hall slip, though.`;
+    text(`Get back to training, ${chosenTrooper.name}.`, 900, 500);
+    textp4 = `Get back to training, ${chosenTrooper.name}.`;
+  } else if(brokenTargets > 0 && dudecaught == true) {
+    text(`You caught that guy in the hall, too?.`, 900, 400);
+    textp3 = `You caught that guy in the hall, too?.`;
+    text(`Good work, ${chosenTrooper.name}.`, 900, 500);
+    textp4 = `Good work, ${chosenTrooper.name}.`;
+  } else if(brokenTargets == 0 && dudecaught == true) {
+    text(`At least you caught that dude in the hall.`, 900, 400);
+    textp3 = `At least you caught that dude in the hall.`;
+    text(`You'll be living in the shooting range.`,900, 500);
+    textp4 = `You'll be living in the shooting range.`;
+  } else if(brokenTargets == 0 && !dudecaught) {
+    text(`You let that guy slip, too??`, 900, 400);
+    textp3 = `You let that guy slip, too??`;
+    text(`You're fired. i'm booting you into space.`, 900, 500);
+    textp4 = `You're fired. i'm booting you into space.`;
   }
-    text(`With love, from Mr. vader`, 900, 700);
+    text(`With love, from Mr. vader`, 900, 600);
+    textp5 = `With love, from Mr. vader`;
     pop();
+}
+
+function resultsVoice() {
+  if(!voiceSpeaking){
+    voiceSpeaking = true;
+  switch(voiceSection){
+    case 0:
+    responsiveVoice.speak(textp1, "UK English Male", {onend: function(){
+      voiceSpeaking = false;
+    }});
+    break;
+    case 1:
+    responsiveVoice.speak(textp2, "UK English Male", {onend: function(){
+      voiceSpeaking = false;
+    }});
+    break;
+    case 2:
+    responsiveVoice.speak(textp3, "UK English Male", {onend: function(){
+      voiceSpeaking = false;
+    }});
+    break;
+    case 3:
+    responsiveVoice.speak(textp4, "UK English Male", {onend: function(){
+      voiceSpeaking = false;
+    }});
+    break;
+    case 4:
+    responsiveVoice.speak(textp5, "UK English Male", {onend: function(){
+      voiceSpeaking = false;
+    }});
+    break;
+  }
+  voiceSection ++;
+}
 }
