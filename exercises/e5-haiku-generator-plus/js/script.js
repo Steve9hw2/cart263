@@ -24,10 +24,15 @@ let line3 = random(fiveSyllableLines);
 let p1 = document.getElementById(`line-1`);
 let p2 = document.getElementById(`line-2`);
 let p3 = document.getElementById(`line-3`);
+let button = document.getElementById(`speakerbutton`);
 
 let db1 = false; // db = debounce = check that the text isn't already changing
 let db2 = false;
 let db3 = false;
+
+
+let poemSpoken = false;
+
 
 p1.innerText = line1;
 p2.innerText = line2;
@@ -36,6 +41,8 @@ p3.innerText = line3;
 p1.addEventListener(`click`,lineClicked1);
 p2.addEventListener(`click`,lineClicked2);
 p3.addEventListener(`click`,lineClicked3);
+
+button.addEventListener(`click`,readPoem);
 
 function lineClicked1(event) {
   if (db1 === false) {
@@ -56,6 +63,19 @@ function lineClicked3(event) {
   db3 = true;
   fadeOut(event.target, 1, db3);
   console.log(db3);
+  }
+}
+
+function readPoem() {
+  if (!poemSpoken) {
+    poemSpoken = true;
+    responsiveVoice.speak(line1, "UK English Male", {onend: function(){
+      responsiveVoice.speak(line2, "UK English Male", {onend: function(){
+        responsiveVoice.speak(line3, "UK English Male", {onend: function(){
+          poemSpoken = false;
+        }});
+      }});
+    }});
   }
 }
 
@@ -86,9 +106,20 @@ function fadeIn(element, opacity, db) {
 
 function setNewLine(element) {
   if(element === p1 || element === p3) {
-    element.innerText = random(fiveSyllableLines);
+    let randomLine = random(fiveSyllableLines);
+    element.innerText = randomLine;
+    switch(element){
+      case p1:
+      line1 = randomLine;
+      break;
+      case p3:
+      line3 = randomLine;
+      break;
+    }
   } else if (element === p2) {
-    element.innerText = random(sevenSyllableLines);
+    let randomLine = random(sevenSyllableLines);
+    element.innerText = randomLine;
+    line2 = randomLine;
   }
 }
 

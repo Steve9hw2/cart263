@@ -7,4 +7,10 @@ body {
   font-size: 2rem;
   font-weight: bold;
   color: #ffffff;
+  padding-left: 40%;
+  padding-top: 10%;
+}
+
+#speakerbutton {
+  padding-left: 44%;
 }
