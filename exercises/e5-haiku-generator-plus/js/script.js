@@ -136,13 +136,15 @@ function lineClicked3(event) {
 function readPoem() {
   if (!poemSpoken) {
     poemSpoken = true;
-    responsiveVoice.speak(line1, "UK English Male", {onend: function(){
-      responsiveVoice.speak(line2, "UK English Male", {onend: function(){
-        responsiveVoice.speak(line3, "UK English Male", {onend: function(){
-          poemSpoken = false;
+    responsiveVoice.speak(title.innerText, "UK English Male", {onend: function(){
+      responsiveVoice.speak(line1, "UK English Male", {onend: function(){
+        responsiveVoice.speak(line2, "UK English Male", {onend: function(){
+          responsiveVoice.speak(line3, "UK English Male", {onend: function(){
+            poemSpoken = false;
+          }});
         }});
       }});
-    }});
+    }})
   }
 }
 
