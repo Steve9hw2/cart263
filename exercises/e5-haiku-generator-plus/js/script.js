@@ -17,14 +17,81 @@ let sevenSyllableLines = [
   `They will not come back again`
 ];
 
+let words = [
+  `a`,
+  `able`,
+  `about`,
+  `absolute`,
+  `accept`,
+  `account`,
+  `achieve`,
+  `across`,
+  `act`,
+  `active`,
+  `actual`,
+  `add`,
+  `address`,
+  `admit`,
+  `advertise`,
+  `affect`,
+  `afford`,
+  `after`,
+  `afternoon`,
+  `again`,
+  `against`,
+  `age`,
+  `agent`,
+  `ago`,
+  `agree`,
+  `air`,
+  `all`,
+  `allow`,
+  `almost`,
+  `along`,
+  `already`,
+  `alright`,
+  `also`,
+  `although`,
+  `always`,
+  `america`,
+  `amount`,
+  `and`,
+  `another`,
+  `answer`,
+  `any`,
+  `apart`,
+  `apparent`,
+  `appear`,
+  `apply`,
+  `appoint`,
+  `approach`,
+  `appropriate`,
+  `area`,
+  `argue`,
+  `arm`,
+  `around`,
+  `arrange`,
+  `art`,
+  `as`,
+  `ask`,
+  `associate`,
+  `assume`,
+  `at`,
+  `attend`,
+  `authority`,
+]
+
 let line1 = random(fiveSyllableLines);
 let line2 = random(sevenSyllableLines);
 let line3 = random(fiveSyllableLines);
 
+let title = document.getElementById(`title`);
 let p1 = document.getElementById(`line-1`);
 let p2 = document.getElementById(`line-2`);
 let p3 = document.getElementById(`line-3`);
 let button = document.getElementById(`speakerbutton`);
+
+
 
 let db1 = false; // db = debounce = check that the text isn't already changing
 let db2 = false;
@@ -33,7 +100,7 @@ let db3 = false;
 
 let poemSpoken = false;
 
-
+title.innerText = random(words);
 p1.innerText = line1;
 p2.innerText = line2;
 p3.innerText = line3;
@@ -49,7 +116,7 @@ function lineClicked1(event) {
   db1 = true;
   fadeOut(event.target, 1, db1);
   console.log(db1);
-  }
+}
 }
 function lineClicked2(event) {
   if (db2 === false) {
