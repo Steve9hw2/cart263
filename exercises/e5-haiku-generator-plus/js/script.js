@@ -1,5 +1,5 @@
 // Steve Berthiaume
-// Haiku Generator
+// Haiku Generator Plus
 "use strict";
 
 let fiveSyllableLines = [
@@ -25,38 +25,62 @@ let p1 = document.getElementById(`line-1`);
 let p2 = document.getElementById(`line-2`);
 let p3 = document.getElementById(`line-3`);
 
+let db1 = false; // db = debounce = check that the text isn't already changing
+let db2 = false;
+let db3 = false;
+
 p1.innerText = line1;
 p2.innerText = line2;
 p3.innerText = line3;
 
-p1.addEventListener(`click`,lineClicked);
-p2.addEventListener(`click`,lineClicked);
-p3.addEventListener(`click`,lineClicked);
+p1.addEventListener(`click`,lineClicked1);
+p2.addEventListener(`click`,lineClicked2);
+p3.addEventListener(`click`,lineClicked3);
 
-function lineClicked(event) {
-  fadeOut(event.target, 1);
+function lineClicked1(event) {
+  if (db1 === false) {
+  db1 = true;
+  fadeOut(event.target, 1, db1);
+  console.log(db1);
+  }
+}
+function lineClicked2(event) {
+  if (db2 === false) {
+  db2 = true;
+  fadeOut(event.target, 1, db2);
+  console.log(db2);
+  }
+}
+function lineClicked3(event) {
+  if (db3 === false) {
+  db3 = true;
+  fadeOut(event.target, 1, db3);
+  console.log(db3);
+  }
 }
 
-function fadeOut(element, opacity) {
+function fadeOut(element, opacity, db) {
   opacity -= 0.01;
   element.style[`opacity`] = opacity;
   if (opacity > 0) {
     requestAnimationFrame(function(){
-      fadeOut(element, opacity);
+      fadeOut(element, opacity, db);
     });
   } else {
     setNewLine(element);
-    fadeIn(element, opacity);
+    fadeIn(element, opacity, db);
   }
 }
 
-function fadeIn(element, opacity) {
+function fadeIn(element, opacity, db) {
   opacity += 0.01;
   element.style[`opacity`] = opacity;
   if (opacity < 1) {
     requestAnimationFrame(function(){
-      fadeIn(element, opacity);
+      fadeIn(element, opacity, db);
     });
+  } else {
+    db = false;
   }
 }
 
