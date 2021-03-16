@@ -11,7 +11,14 @@
   width: 50vw;
   font-size: 1.5rem;
   margin: auto;
-  
+
+}
+
+#failure {
+  font-family: monospace;
+  width: 50vw;
+  font-size: 3rem;
+  margin: auto;
 }
 
 .redacted {
