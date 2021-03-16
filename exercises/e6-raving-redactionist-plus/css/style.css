@@ -1,0 +1,16 @@
+#secret-document {
+  font-family: monospace;
+  width:50vw;
+  font-size: 1.5rem;
+  margin: auto;
+}
+
+.redacted {
+  background-color: black;
+  user-select: none;
+}
+
+.revealed {
+  color: red;
+  text-decoration: underline;
+}
