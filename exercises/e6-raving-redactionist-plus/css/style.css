@@ -21,6 +21,12 @@
   margin: auto;
 }
 
+#crabbed {
+  font-family: monospace;
+  width: 50vw;
+  font-size: 3rem;
+  margin: auto;
+}
 .redacted {
   background-color: black;
   user-select: none;
