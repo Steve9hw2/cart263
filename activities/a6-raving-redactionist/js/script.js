@@ -1,20 +1,22 @@
-/**************************************************
-Template p5 project
-Pippin Barr
+"use strict";
 
-Here is a description of this template p5 project.
-**************************************************/
+$(`.top-secret`).on(`click`, redact);
 
-// setup()
-//
-// Description of setup() goes here.
-function setup() {
+setInterval(revelation, 500);
 
+function redact(event) {
+  $(this).removeClass(`revealed`);
+  $(this).addClass(`redacted`);
 }
 
-// draw()
-//
-// Description of draw() goes here.
-function draw() {
+function revelation() {
+  $(`.redacted`).each(attemptReveal);
+}
 
+function attemptReveal() {
+  let r = Math.random();
+  if (r < 0.1) {
+    $(this).removeClass(`redacted`);
+    $(this).addClass(`revealed`);
+  }
 }
