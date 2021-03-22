@@ -1,0 +1,25 @@
+#prison {
+  /* Dimensions */
+  width: 30vw;
+  height: 30vw;
+  /* walls */
+  border: 5px dashed black;
+  /* css grid alignment */
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+#prisoner {
+  font-size: 2rem;
+}
+
+#escape-tunnel {
+  width: 5vw;
+  height: 5vw;
+  border: 2px dashed black;
+  border-radius: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
