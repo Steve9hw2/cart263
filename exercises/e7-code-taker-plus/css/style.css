@@ -19,6 +19,11 @@
   vertical-align: middle;
 }
 
+#monke { /* image that appears where the poem was, on solving */
+  margin-left: 38%;
+  margin-top: 15%;
+}
+
 .found { /* class for solution letters that have been moused over */
   color: yellow;
 }
