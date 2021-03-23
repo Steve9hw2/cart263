@@ -1,13 +1,30 @@
+* {
+  color: white;
+}
+
 #poem {
-  font-size: 1.2rem;
+  margin-left: 40%;
+  margin-top: 12%;
+  width: 20%;
+  font-size: 1.4rem;
 }
 
 #answer {
-  width: 10rem;
-  height: 2rem;
-  border: 1px dashed black;
+  margin-left: 40%;
+  width: 16rem;
+  height: 3rem;
+  border: 1px dashed white;
+  font-size: 2rem;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .found {
-  color: red;
+  color: yellow;
+}
+
+body {
+  background-image: url(https://design-bird.co.uk/wp-content/uploads/2015/11/Jungle-background-4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
