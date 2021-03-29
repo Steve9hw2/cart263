@@ -1,0 +1,10 @@
+* {
+  /* where universal stuff like font information would go */
+
+}
+
+#placeholderbg {
+  display: block;
+  margin: auto;
+  margin-top: 1%;
+}
