@@ -3,8 +3,20 @@
 
 }
 
-#placeholderbg {
-  display: block;
+#viewwindow {
+  width: 90vw;
+  height: 90vw;
+  background-image: url("/assets/images/scenes/placeholderbg.png");
+  background-repeat: no-repeat;
   margin: auto;
   margin-top: 1%;
+}
+
+#cream {
+  position: relative;
+  border: 0;
+  width: 26vw;
+  height: 37vw;
+  margin-left: 64vw;
+  padding-top: 17vw;
 }
