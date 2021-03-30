@@ -1,5 +1,5 @@
 {
-  "dialogue": [
+  "dialogue": [{
     "one": [{
     "speaker": "cream",
     "expression": "neutral",
@@ -33,5 +33,5 @@
       "expression": "pain",
       "text": "Oh dear. Not again."
       }]
+}]
 }
-]

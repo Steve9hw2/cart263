@@ -7,7 +7,7 @@
 
 #viewwindow {
   width: 90vw;
-  height: 90vw;
+  height: 90vh;
   background-image: url("/assets/images/scenes/placeholderbg.png");
   background-repeat: no-repeat;
   margin: auto;
@@ -15,11 +15,22 @@
 }
 
 #textbox {
-  width:60vw;
+  width:55vw;
   height:15vw;
   position: relative;
   padding-top: 30vw;
+  padding-left: 20%;
   margin-left: 3vw;
+}
+
+#portraits {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width:1vw;
+  height:1vh;
+  padding-top: 15.5%;
+  padding-left: 5%;
 }
 
 #cream {
