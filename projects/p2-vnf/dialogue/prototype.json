@@ -1,0 +1,37 @@
+{
+  "dialogue": [
+    "one": [{
+    "speaker": "cream",
+    "expression": "neutral",
+    "text": "This is the first part of JSON text!"
+    }]
+  },
+  {
+    "two": [{
+      "speaker": "cream",
+      "expression": "pleased",
+      "text": "Hopefully this is working!!"
+      }]
+  },
+  {
+    "three": [{
+      "speaker": "cream",
+      "expression": "tears",
+      "text": "It was an absolute pain to make that happen..."
+      }]
+  },
+  {
+    "four": [{
+      "speaker": "cream",
+      "expression": "unsure",
+      "text": "Wait... this is working, right? No errors?"
+      }]
+  },
+  {
+    "five": [{
+      "speaker": "cream",
+      "expression": "pain",
+      "text": "Oh dear. Not again."
+      }]
+}
+]

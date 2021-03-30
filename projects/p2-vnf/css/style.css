@@ -1,6 +1,8 @@
 * {
   /* where universal stuff like font information would go */
-
+  color: white;
+  font-family: lemon, sans-serif;
+  font-size: 1.3rem;
 }
 
 #viewwindow {
@@ -12,11 +14,19 @@
   margin-top: 1%;
 }
 
+#textbox {
+  width:60vw;
+  height:15vw;
+  position: relative;
+  padding-top: 30vw;
+  margin-left: 3vw;
+}
+
 #cream {
   position: relative;
   border: 0;
   width: 26vw;
   height: 37vw;
   margin-left: 64vw;
-  padding-top: 17vw;
+  padding-bottom: 100vw;
 }
