@@ -1,14 +1,17 @@
 "use strict";
+
 let textJSON;
 let currentIndex;
+let currentParagraph = 0;
 let currentText;
 let currentSpeaker;
 let currentExpression;
+
 $(document).ready(function() {
   $.getJSON("dialogue/prototype.json", function(data){
     textJSON = data.dialogue;
     console.log(textJSON);
-    currentIndex = textJSON[0].one
+    currentIndex = textJSON[0].speech
     console.log(`${currentIndex}`)
     currentText = currentIndex[0].text
     console.log(`${currentIndex[0].text}`)
@@ -24,6 +27,28 @@ $(document).ready(function() {
     console.log("An error has occurred.");
   });
 });
+
+$(`#nextarrow`).on(`click`,function() {
+  nextIndex();
+})
+
+function nextIndex() {
+  $.getJSON("dialogue/prototype.json", function(data){
+    currentParagraph++;
+    textJSON = data.dialogue;
+    currentIndex = textJSON[currentParagraph].speech
+    console.log(`${currentIndex}`)
+    currentText = currentIndex[0].text
+    console.log(`${currentIndex[0].text}`)
+    currentSpeaker = currentIndex[0].speaker
+    console.log(`${currentIndex[0].speaker}`)
+    currentExpression = currentIndex[0].expression
+    console.log(`${currentIndex[0].expression}`)
+    $(`#text`).text(currentText);
+    $(`#speaker`).text(currentSpeaker);
+    switchExpression();
+});
+}
 
 function switchExpression() { // this function switches the expression dynamically. when called, it disables all portraits that are not the active one.
   switch(currentExpression) {

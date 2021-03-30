@@ -39,5 +39,16 @@
   width: 26vw;
   height: 37vw;
   margin-left: 64vw;
-  margin-bottom: 100vw;
+  margin-bottom: 10%;
+}
+
+#nextarrow {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 0;
+  width: 5vw;
+  height:5vw;
+  padding-left: 1000%;
+  padding-top: 600%;
 }
