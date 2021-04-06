@@ -3,35 +3,43 @@
     "speech": [{
     "speaker": "Cream",
     "expression": "neutral",
-    "text": "This is the first part of JSON text!"
+    "text": "Welcome to Night Mountain!"
     }]
   },
   {
     "speech": [{
       "speaker": "Cream",
-      "expression": "pleased",
-      "text": "Hopefully this is working!!"
+      "expression": "unsure",
+      "text": "There's not much here, honestly..."
       }]
   },
   {
     "speech": [{
       "speaker": "Cream",
       "expression": "tears",
-      "text": "It was an absolute pain to make that happen..."
+      "text": "And it can get pretty boring..."
       }]
   },
   {
     "speech": [{
       "speaker": "Cream",
       "expression": "unsure",
-      "text": "Wait... this is working, right? No errors?"
+      "text": "But you should go talk to the others!!"
       }]
   },
   {
     "speech": [{
       "speaker": "Cream",
-      "expression": "pain",
-      "text": "Oh dear. Not again."
+      "expression": "question",
+      "text": "Maybe somebody will need help with something?"
       }]
-}]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "pleased",
+    "text": "I know you'll do great!"
+    }]
+}
+]
 }
