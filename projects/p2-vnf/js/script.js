@@ -8,7 +8,7 @@ let currentSpeaker;
 let currentExpression;
 
 $(document).ready(function() {
-  $.getJSON("dialogue/prototype.json", function(data){
+  $.getJSON("dialogue/creamtext.json", function(data){
     textJSON = data.dialogue;
     console.log(textJSON);
     currentIndex = textJSON[0].speech
@@ -33,7 +33,7 @@ $(`#nextarrow`).on(`click`,function() {
 })
 
 function nextIndex() {
-  $.getJSON("dialogue/prototype.json", function(data){
+  $.getJSON("dialogue/creamtext.json", function(data){
     currentParagraph++;
     textJSON = data.dialogue;
     currentIndex = textJSON[currentParagraph].speech

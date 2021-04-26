@@ -1,0 +1,304 @@
+{
+  "dialogue": [{
+    "speech": [{
+    "speaker": "Cream",
+    "expression": "neutral",
+    "text": "Welcome to Night Mountain!"
+    }]
+  },
+  {
+    "speech": [{
+      "speaker": "Cream",
+      "expression": "unsure",
+      "text": "There's not much here, honestly..."
+      }]
+  },
+  {
+    "speech": [{
+      "speaker": "Cream",
+      "expression": "tears",
+      "text": "And it can get pretty boring..."
+      }]
+  },
+  {
+    "speech": [{
+      "speaker": "Cream",
+      "expression": "unsure",
+      "text": "But you should go talk to the others!!"
+      }]
+  },
+  {
+    "speech": [{
+      "speaker": "Cream",
+      "expression": "question",
+      "text": "Maybe somebody will need help with something?"
+      }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "pleased",
+    "text": "Maybe they'll need to vent their frustrations?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "Uh. Hello."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "What are you doing here?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "blank",
+    "text": "If you were expecting dynamic gameplay mechanics, uh."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "I blame stress, myself. At least I'm able to talk, right?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "This may or may not be exceedingly subpar. Yeahhh."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "The art is barely passable, the idea's too simple..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "I can't imagine a more disappointing final."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "Did you know at one point the JSON for text..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "...was going to be several files?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "Yeah. That didn't happen."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "Now I'm stuck with that insufferable cream."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "sad",
+    "text": "Wait, what do you mean this isn't valid text?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "Is metacommentary not substantial?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "blank",
+    "text": "Chalk another one up to disappointing."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "To be honest, my creator's been losing it."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "For whatever reason, he fell behind."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "Something strange kept him from seeking help."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "Something about being undeserving?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "blank",
+    "text": "Well, it's his own fault."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "This is just the consequence of his actions."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "Frankly, I find it insulting."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "I would have loved to be animated, but nooo!"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "blank",
+    "text": "I'm stuck living through half a dozen pictures."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "sad",
+    "text": "Trust me, it ain't fun."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "I suppose I should have mercy on my creator."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "sad",
+    "text": "After all, my very existence was in question."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "And perhaps, what little is here..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "...it demonstrates an understanding?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "I'm not impressed, mind you."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "I've seen better from prototypes!"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "...but there is something here."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "Considering the misery that is HTML and CSS..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "smile",
+    "text": "...perhaps this is even a miracle."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "It's proof of ineptitude too, but oh well."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "smile",
+    "text": "I am now cured of my bad™."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "smile",
+    "text": "Go check in on lilac, I think she may need it."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "sleepy",
+    "text": "adsfhasdhkfas."
+    }]
+}
+]
+}
