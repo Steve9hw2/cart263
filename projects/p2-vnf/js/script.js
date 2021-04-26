@@ -204,52 +204,52 @@ function switchExpression() { // this function switches the expression dynamical
   } else if (currentSpeaker == `Lilac`) {
   switch(currentExpression) {
     case `annoyed`:
-    $(`#annoyed`).show();
-    $(`#baffled`).hide();
-    $(`#blank`).hide();
-    $(`#confused`).hide();
-    $(`#neutral`).hide();
-    $(`#sleepy`).hide();
+    $(`#li_annoyed`).show();
+    $(`#li_baffled`).hide();
+    $(`#li_blank`).hide();
+    $(`#li_confused`).hide();
+    $(`#li_neutral`).hide();
+    $(`#li_sleepy`).hide();
     break;
     case `baffled`:
-    $(`#annoyed`).hide();
-    $(`#baffled`).show();
-    $(`#blank`).hide();
-    $(`#confused`).hide();
-    $(`#neutral`).hide();
-    $(`#sleepy`).hide();
+    $(`#li_annoyed`).hide();
+    $(`#li_baffled`).show();
+    $(`#li_blank`).hide();
+    $(`#li_confused`).hide();
+    $(`#li_neutral`).hide();
+    $(`#li_sleepy`).hide();
     break;
     case `blank`:
-    $(`#annoyed`).hide();
-    $(`#baffled`).hide();
-    $(`#blank`).show();
-    $(`#confused`).hide();
-    $(`#neutral`).hide();
-    $(`#sleepy`).hide();
+    $(`#li_annoyed`).hide();
+    $(`#li_baffled`).hide();
+    $(`#li_blank`).show();
+    $(`#li_confused`).hide();
+    $(`#li_neutral`).hide();
+    $(`#li_sleepy`).hide();
     break;
     case `confused`:
-    $(`#annoyed`).hide();
-    $(`#baffled`).hide();
-    $(`#blank`).hide();
-    $(`#confused`).show();
-    $(`#neutral`).hide();
-    $(`#sleepy`).hide();
+    $(`#li_annoyed`).hide();
+    $(`#li_baffled`).hide();
+    $(`#li_blank`).hide();
+    $(`#li_confused`).show();
+    $(`#li_neutral`).hide();
+    $(`#li_sleepy`).hide();
     break;
     case `neutral`:
-    $(`#annoyed`).hide();
-    $(`#baffled`).hide();
-    $(`#blank`).hide();
-    $(`#confused`).hide();
-    $(`#neutral`).show();
-    $(`#sleepy`).hide();
+    $(`#li_annoyed`).hide();
+    $(`#li_baffled`).hide();
+    $(`#li_blank`).hide();
+    $(`#li_confused`).hide();
+    $(`#li_neutral`).show();
+    $(`#li_sleepy`).hide();
     break;
     case `sleepy`:
-    $(`#annoyed`).hide();
-    $(`#baffled`).hide();
-    $(`#blank`).hide();
-    $(`#confused`).hide();
-    $(`#neutral`).hide();
-    $(`#sleepy`).show();
+    $(`#li_annoyed`).hide();
+    $(`#li_baffled`).hide();
+    $(`#li_blank`).hide();
+    $(`#li_confused`).hide();
+    $(`#li_neutral`).hide();
+    $(`#li_sleepy`).show();
     break;
   }
   }

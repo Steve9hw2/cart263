@@ -297,7 +297,385 @@
   "speech": [{
     "speaker": "Lilac",
     "expression": "sleepy",
-    "text": "adsfhasdhkfas."
+    "text": "..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "neutral",
+    "text": "oh."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "neutral",
+    "text": "hi."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "baffled",
+    "text": "why are you here?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "baffled",
+    "text": "i was under the impression the project would be over by now."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "confused",
+    "text": "i mean, aqua spoke for years so uh."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "baffled",
+    "text": "why are you still here?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "baffled",
+    "text": "is this about sympathy at this point?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "baffled",
+    "text": "oh right i'm supposed to be divulging my issue or whatever."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "annoyed",
+    "text": "why can't cream just let me sleeppp....."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "neutral",
+    "text": "well uh."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "neutral",
+    "text": "truth be told, motivation's been an issue for me."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "sleepy",
+    "text": "I just don't have it in me to do things I hate."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "neutral",
+    "text": "I don't think it's even laziness anymore."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "confused",
+    "text": "like, I'm just spiralling and in pain when I try."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "neutral",
+    "text": "everyone seems to just get it, and even when i know they don't..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "neutral",
+    "text": "...nobody broadcasts the struggle, so I just feel bad?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "blank",
+    "text": "..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "baffled",
+    "text": "that's about it."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "annoyed",
+    "text": "i just hope it's my own issue..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "confused",
+    "text": "...oh, you're still here."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "annoyed",
+    "text": "go see cream or something, i dunno."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "neutral",
+    "text": "So? How did it go?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "pleased",
+    "text": "You don't have to answer, I know you nailed it!!"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "pain",
+    "text": "...what do you mean they don't care?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "unsure",
+    "text": "uh."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "neutral",
+    "text": "I'm sure if you go talk to them again..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "pleased",
+    "text": "...they'll be glad to see you!!!"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "blank",
+    "text": "..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "...did Cream really send you back?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "I did what he told me to. I'm done."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "...If I wasn't a PNG I'd go yell at him."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "confusion",
+    "text": "Why do you look so surprised???"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "Obviously a PNG can't go yell at another one!!!"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "...I don't have feet."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "Not to mention, my entire existence takes place here."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "sad",
+    "text": "I'm pretty sure it's physically impossible..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "angry",
+    "text": "...why am I telling you this, go away!"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "neutral",
+    "text": "..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "annoyed",
+    "text": "..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "sleepy",
+    "text": "..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "sleepy",
+    "text": "......"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "sleepy",
+    "text": "......zzz......."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "sleepy",
+    "text": "......zzz......go...away......cream......zzz..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "unsure",
+    "text": "You have the same look on your face as earlier."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "unsure",
+    "text": "Don't tell me... they aren't cooperating?"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "unsure",
+    "text": "...hmm..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "neutral",
+    "text": "..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "neutral",
+    "text": "..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "neutral",
+    "text": "...Welcome to Night Mountain!"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "neutral",
+    "text": "There's nothing else here, honestly."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Cream",
+    "expression": "pleased",
+    "text": "...I hope you enjoy your stay!"
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "vanished",
+    "text": "..."
+    }]
+},
+{
+  "speech": [{
+    "speaker": "Lilac",
+    "expression": "vanished",
+    "text": "..."
     }]
 }
 ]
