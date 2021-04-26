@@ -7,7 +7,7 @@ let currentText;
 let currentSpeaker;
 let currentExpression;
 
-$(document).ready(function() {
+$(document).ready(function() { // on start
   $.getJSON("dialogue/creamtext.json", function(data){
     textJSON = data.dialogue;
     console.log(textJSON);
@@ -32,7 +32,7 @@ $(`#nextarrow`).on(`click`,function() {
   nextIndex();
 })
 
-function nextIndex() {
+function nextIndex() { // update values
   $.getJSON("dialogue/creamtext.json", function(data){
     currentParagraph++;
     textJSON = data.dialogue;
@@ -200,6 +200,14 @@ function switchExpression() { // this function switches the expression dynamical
     $(`#aq_sad`).hide();
     $(`#aq_smile`).show();
     break;
+    case `vanished`:
+    $(`#aq_angry`).hide();
+    $(`#aq_blank`).hide();
+    $(`#aq_confusion`).hide();
+    $(`#aq_neutral`).hide();
+    $(`#aq_sad`).hide();
+    $(`#aq_smile`).hide();
+    break;
   }
   } else if (currentSpeaker == `Lilac`) {
   switch(currentExpression) {
@@ -251,8 +259,24 @@ function switchExpression() { // this function switches the expression dynamical
     $(`#li_neutral`).hide();
     $(`#li_sleepy`).show();
     break;
+    case `vanished`:
+    $(`#li_annoyed`).hide();
+    $(`#li_baffled`).hide();
+    $(`#li_blank`).hide();
+    $(`#li_confused`).hide();
+    $(`#li_neutral`).hide();
+    $(`#li_sleepy`).hide();
+    break;
   }
+  } else if (currentSpeaker == `end`) {
+  $(`#endscreen`).show();
+  $(`#nextarrow`).hide();
+  $(`#textbox`).hide();
+  $(`#bg_night`).hide();
+  $(`#bg_twilight`).hide();
+  $(`#bg_dawn`).hide();
   }
+
 }
 
 console.log(`script prints`)
@@ -260,29 +284,35 @@ console.log(`script prints`)
 function showCream() {
   $(`#cream`).show();
   $(`#bg_night`).show();
+  $(`#endscreen`).hide();
 }
 
 function hideCream() {
   $(`#cream`).hide();
   $(`#bg_night`).hide();
+  $(`#endscreen`).hide();
 }
 
 function showAqua() {
   $(`#aqua`).show();
   $(`#bg_twilight`).show();
+  $(`#endscreen`).hide();
 }
 
 function hideAqua() {
   $(`#aqua`).hide();
   $(`#bg_twilight`).hide();
+  $(`#endscreen`).hide();
 }
 
 function showLilac() {
   $(`#lilac`).show();
   $(`#bg_dawn`).show();
+  $(`#endscreen`).hide();
 }
 
 function hideLilac() {
   $(`#lilac`).hide();
   $(`#bg_dawn`).hide();
+  $(`#endscreen`).hide();
 }
