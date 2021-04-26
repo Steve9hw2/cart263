@@ -40,6 +40,13 @@
     "expression": "pleased",
     "text": "I know you'll do great!"
     }]
+},
+{
+  "speech": [{
+    "speaker": "Aqua",
+    "expression": "neutral",
+    "text": "Uh. Hello."
+    }]
 }
 ]
 }

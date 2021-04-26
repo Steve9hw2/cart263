@@ -41,6 +41,24 @@
   margin-bottom: 10%;
 }
 
+#aqua {
+  position: relative;
+  border: 0;
+  width: 26vw;
+  height: 37vw;
+  margin-left: 64vw;
+  margin-bottom: 10%;
+}
+
+#lilac {
+  position: relative;
+  border: 0;
+  width: 26vw;
+  height: 37vw;
+  margin-left: 64vw;
+  margin-bottom: 10%;
+}
+
 #nextarrow {
   position: absolute;
   top: 10px;

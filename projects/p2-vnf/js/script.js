@@ -51,6 +51,23 @@ function nextIndex() {
 }
 
 function switchExpression() { // this function switches the expression dynamically. when called, it disables all portraits that are not the active one.
+  switch(currentSpeaker) {
+    case `Cream`:
+    showCream();
+    hideAqua();
+    hideLilac();
+    break;
+    case `Aqua`:
+    hideCream();
+    showAqua();
+    hideLilac();
+    break;
+    case `Lilac`:
+    hideCream();
+    hideAqua();
+    showLilac();
+  }
+  if (currentSpeaker == `Cream`) { // scan for current expression, hide all other portraits
   switch(currentExpression) {
     case `enthused`:
     $(`#cr_enthused`).show();
@@ -133,6 +150,139 @@ function switchExpression() { // this function switches the expression dynamical
     $(`#cr_question`).hide();
     break;
   }
+  } else if (currentSpeaker == `Aqua`) {
+  switch(currentExpression) {
+    case `angry`:
+    $(`#aq_angry`).show();
+    $(`#aq_blank`).hide();
+    $(`#aq_confusion`).hide();
+    $(`#aq_neutral`).hide();
+    $(`#aq_sad`).hide();
+    $(`#aq_smile`).hide();
+    break;
+    case `blank`:
+    $(`#aq_angry`).hide();
+    $(`#aq_blank`).show();
+    $(`#aq_confusion`).hide();
+    $(`#aq_neutral`).hide();
+    $(`#aq_sad`).hide();
+    $(`#aq_smile`).hide();
+    break;
+    case `confusion`:
+    $(`#aq_angry`).hide();
+    $(`#aq_blank`).hide();
+    $(`#aq_confusion`).show();
+    $(`#aq_neutral`).hide();
+    $(`#aq_sad`).hide();
+    $(`#aq_smile`).hide();
+    break;
+    case `neutral`:
+    $(`#aq_angry`).hide();
+    $(`#aq_blank`).hide();
+    $(`#aq_confusion`).hide();
+    $(`#aq_neutral`).show();
+    $(`#aq_sad`).hide();
+    $(`#aq_smile`).hide();
+    break;
+    case `sad`:
+    $(`#aq_angry`).hide();
+    $(`#aq_blank`).hide();
+    $(`#aq_confusion`).hide();
+    $(`#aq_neutral`).hide();
+    $(`#aq_sad`).show();
+    $(`#aq_smile`).hide();
+    break;
+    case `smile`:
+    $(`#aq_angry`).hide();
+    $(`#aq_blank`).hide();
+    $(`#aq_confusion`).hide();
+    $(`#aq_neutral`).hide();
+    $(`#aq_sad`).hide();
+    $(`#aq_smile`).show();
+    break;
+  }
+  } else if (currentSpeaker == `Lilac`) {
+  switch(currentExpression) {
+    case `annoyed`:
+    $(`#annoyed`).show();
+    $(`#baffled`).hide();
+    $(`#blank`).hide();
+    $(`#confused`).hide();
+    $(`#neutral`).hide();
+    $(`#sleepy`).hide();
+    break;
+    case `baffled`:
+    $(`#annoyed`).hide();
+    $(`#baffled`).show();
+    $(`#blank`).hide();
+    $(`#confused`).hide();
+    $(`#neutral`).hide();
+    $(`#sleepy`).hide();
+    break;
+    case `blank`:
+    $(`#annoyed`).hide();
+    $(`#baffled`).hide();
+    $(`#blank`).show();
+    $(`#confused`).hide();
+    $(`#neutral`).hide();
+    $(`#sleepy`).hide();
+    break;
+    case `confused`:
+    $(`#annoyed`).hide();
+    $(`#baffled`).hide();
+    $(`#blank`).hide();
+    $(`#confused`).show();
+    $(`#neutral`).hide();
+    $(`#sleepy`).hide();
+    break;
+    case `neutral`:
+    $(`#annoyed`).hide();
+    $(`#baffled`).hide();
+    $(`#blank`).hide();
+    $(`#confused`).hide();
+    $(`#neutral`).show();
+    $(`#sleepy`).hide();
+    break;
+    case `sleepy`:
+    $(`#annoyed`).hide();
+    $(`#baffled`).hide();
+    $(`#blank`).hide();
+    $(`#confused`).hide();
+    $(`#neutral`).hide();
+    $(`#sleepy`).show();
+    break;
+  }
+  }
 }
 
 console.log(`script prints`)
+
+function showCream() {
+  $(`#cream`).show();
+  $(`#bg_night`).show();
+}
+
+function hideCream() {
+  $(`#cream`).hide();
+  $(`#bg_night`).hide();
+}
+
+function showAqua() {
+  $(`#aqua`).show();
+  $(`#bg_twilight`).show();
+}
+
+function hideAqua() {
+  $(`#aqua`).hide();
+  $(`#bg_twilight`).hide();
+}
+
+function showLilac() {
+  $(`#lilac`).show();
+  $(`#bg_dawn`).show();
+}
+
+function hideLilac() {
+  $(`#lilac`).hide();
+  $(`#bg_dawn`).hide();
+}
